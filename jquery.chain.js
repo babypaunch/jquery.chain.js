@@ -39,18 +39,18 @@ $.chains = function(object, element, attrs = [], direction = "append"){
 	return object;
 }
 
-$.fn.appends = function(element, attrs = []){
+$.fn.$appends = function(element, attrs = []){
 	return $.chains(this, element, attrs, "append");
 }
 
-$.fn.prepends = function(element, attrs = []){
+$.fn.$prepends = function(element, attrs = []){
 	return $.chains(this, element, attrs, "prepend");
 }
 
-$.fn.afters = function(element, attrs = []){
+$.fn.$afters = function(element, attrs = []){
 	return $.chains(this, element, attrs, "after");
 }
 
-$.fn.befores = function(element, attrs = []){
+$.fn.$befores = function(element, attrs = []){
 	return $.chains(this, element, attrs, "before");
 }
