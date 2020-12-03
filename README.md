@@ -70,7 +70,7 @@ $(function{
 	];
 
 	//extend-case1
-	var $select = $("<select/>").appends("option", regions); //동적 생성 부분
+	var $select = $("<select/>").$appends("option", regions); //동적 생성 부분
 	$("#sample")
 		.$append("div")
 			.$append("span", {text: "지역: "})
@@ -82,7 +82,7 @@ $(function{
 	$("#sample")
 		.$append("div")
 			.$append("span", {text: "지역: "})
-			.$after("select").appends("option", regions).parent()
+			.$after("select").$appends("option", regions).parent()
 		.$after("div", {text: "- The End -"})
 	;
 });
