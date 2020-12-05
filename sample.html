@@ -52,20 +52,23 @@
 		$sample1.hide();
 
 		tailwind = {
-			grid: ".grid.sm:grid-cols-1.md:grid-cols-2.lg:grid-cols-3"
-			, row: ".p-2.grid.sm:grid-cols-1.md:grid-cols-2"
-			, label: ".sm:block.md:flex.md:justify-end.md:items-center.text-sm.w-full.pr-2.md:text-lg.md:text-right"
+			row1: ".grid.sm:grid-cols-1"
+			, row1_2_3: ".grid.sm:grid-cols-1.md:grid-cols-2.lg:grid-cols-3"
+			, col: ".p-2.block.md:flex"
+			, label: "block.text-sm.w-full.md:flex.md:justify-end.md:items-center.md:w-1/2.pr-2.md:text-lg.md:text-right"
+			, label2: "block.text-sm.w-full.md:flex.md:justify-end.md:items-center.md:w-1/5.pr-2.md:text-lg.md:text-right"
 			, input: ".block.bg-gray-200.focus:bg-gray-300.focus:outline-none.py-1.px-2.w-full"
 		};
 		let $sample2 = $("#sample2");
 		$sample2
-			.$append(`form.my-0.mx-auto${tailwind.grid}`)
-				.$append(`div${tailwind.row}`)
-					.$append(`label${tailwind.label}`, {text: "ID:", for: "id"})
-					.$after(`input#id${tailwind.input}`, {type: "text"}).parent()
-				.$after(`div${tailwind.row}`)
-					.$append(`label${tailwind.label}`, {text: "Password:", for: "pwd"})
-					.$after(`input#pwd${tailwind.input}`, {type: "password"}).parent()
+			.$append(`form.my-0.mx-auto`)
+				.$append(`div${tailwind.row1_2_3}`)
+					.$append(`div${tailwind.col}`)
+						.$append(`label${tailwind.label}`, {text: "ID:", for: "id"})
+						.$after(`input#id${tailwind.input}`, {type: "text"}).parent()
+					.$after(`div${tailwind.col}`)
+						.$append(`label${tailwind.label}`, {text: "Password:", for: "pwd"})
+						.$after(`input#pwd${tailwind.input}`, {type: "password"}).parent().parent()
 		;
 	</script>
 </body>
