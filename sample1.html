@@ -1,0 +1,115 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" crossorigin="anonymous">
+	<style type="text/less">
+		table {
+			table-layout: fixed; width: 100%; border-collapse: collapse;
+
+			tr {
+				width: 100%; height: 20px; background: #eee;
+
+				td {
+					border: 1px solid silver;
+				}
+			}
+		}
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.12.2/less.min.js"></script>
+</head>
+<body>
+	<div id="formWrapper1"></div>
+	<div id="formWrapper2"></div>
+	<div id="sample"></div>
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="jquery.chain.js"></script>
+	<script src="jquery.emmet.js"></script>
+	<script type="text/javascript">
+		var nations = [
+			{value: "kor", text: "한국"}
+			, {value: "usa", text: "미국"}
+			, {value: "chn", text: "중국"}
+		];
+		var $select = $("<select/>", {id: "test-select"}).$appends("option", nations);
+
+		var $fw1 = $("#formWrapper1");
+
+		$fw1.$append("form", {id: "formTestId"})
+			.$append("table")
+				.$append("thead")
+				.$after($("<tbody/>", {class: "bodybody"}))
+					.$append("tr")
+						.$append("td", {colspan: 2}).$append($select).parent().$after("td", {text: "select 다음 td"}).parent()
+					.$after("tr")
+						.$append("td", {class: "td1", text: "test1"}).$append("div").parent().$after("td", {class: "td2"}).parent()
+					.$after("tr")
+						.$append($("<td/>", {colspan: 3, style: "background: green;"})).parent()
+					.$after("tr")
+						.$append("td", {colspan: 3})
+		;
+
+		$fw1.find("tr:eq(1)").$append("td", {class: "td3 td3-1"}).on("mouseover", function(e){
+			$(e.target).css({background: "red"});
+		}).on("mouseleave", function(e){
+			$(e.target).css({background: ""});
+		});
+
+		/*
+		var tests = [
+			{text: "test-text1"}
+			, {text: "test-text2"}
+			, {text: "test-text3"}
+		];
+
+		var $tr = $("<tr/>");
+		for(let i = 0; i < tests.length; i++){
+			$tr._$append("td", {text: tests[i].text});
+			//$tr.emmet("td{" + tests[i].text + "}");
+		}
+		console.log($tr);
+		$fw1.find("table").append($tr);
+		*/
+
+		var str = `
+			form>
+				table>
+					thead+tbody>
+						tr>
+							td*3^
+						tr>
+							td*3>div*3^^
+						tr>
+							td+td{tr2_td1_입니다!}+td^
+						tr*3#tr5.cls1.cls2>
+							td[data-td-idx][custom-attr=1]+td+td[data-td-idx=2]{test_text}
+		`;
+		console.log(str.length, str);
+
+		var $fw2 = $("#formWrapper2");
+		var $tr0 = $fw2.emmet(str).find("tr:eq(0)").css({background: "red"});
+
+		let regions = [
+			{value: "kor", text: "한국"}
+			, {value: "usa", text: "미국"}
+			, {value: "eng", text: "영국"}
+		];
+
+		var $selectExtend = $("<select/>").$appends("option", regions);
+		$("#sample")
+			.$append("div", {id: "extend-case1"})
+				.$append("span", {text: "지역: "})
+				.$after($selectExtend).parent()
+			.$after("div", {text: "- The End -"})
+		;
+
+		$("#sample")
+			.$append("div", {id: "extend-case2"})
+				.$append("span", {text: "지역: "})
+				.$after("select").$appends("option", regions).parent()
+			.$after("div", {text: "- The End -"})
+		;
+	</script>
+</body>
+</html>
