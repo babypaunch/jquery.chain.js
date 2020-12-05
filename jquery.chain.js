@@ -7,10 +7,8 @@ $.emmet = function(str, attr){
 	let id = arr[1] || ""; //id를 분리한 1번째 값이 없으면 공백을 대입
 	let classes = id === "" ? tag.split(".") : id.split("."); //id 값이 없으면 tag에서 class를 분리, 아니면 id에서 class를 분리
 
-	console.log(tag, classes);
-
 	let results = [
-		classes.length > 1 ? classes[0] : tag //0번째에 tag를 대입
+		tag.split(".")[0]
 	]; //return할 배열
 
 	let json = {
