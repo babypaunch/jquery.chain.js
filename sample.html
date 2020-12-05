@@ -1,0 +1,44 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+	<style type="text/less">
+		@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+		* { font-family: 'Nanum Gothic'; }
+		
+		table {
+			table-layout: fixed; width: 100%; border-collapse: collapse;
+
+			tr {
+				width: 100%; height: 20px; background: #eee;
+
+				td {
+					border: 1px solid silver;
+				}
+			}
+		}
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.12.2/less.min.js"></script>
+</head>
+<body>
+	<div id="sample"></div>
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="jquery.chain.js"></script>
+
+	<script type="text/javascript">
+		$("#sample")
+			.$append("form")
+				.$append("div.w-96.mx-auto")
+					.$append("div.grid.grid-cols-2.p-1")
+						.$append("label.mr-1.text-right", {text: "ID:"})
+						.$after("input.border", {type: "text"}).parent()
+					.$after("div.grid.grid-cols-2.p-1")
+						.$append("label.mr-1.text-right", {text: "Password:"})
+						.$after("input.border", {type: "password"}).parent()
+		;
+	</script>
+</body>
+</html>
