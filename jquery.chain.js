@@ -1,25 +1,31 @@
 /*
 * emmet 기능중 id와 class 부분만 기능함.
 */
-$.emmet = function(str){
+$.emmet = function(str, attr){
 	let arr = str.split("#"); //id를 먼저 분리
 	let tag = arr[0]; //id를 분리한 0번째 값을 tag에 대입
 	let id = arr[1] || ""; //id를 분리한 1번째 값이 없으면 공백을 대입
 	let classes = id === "" ? tag.split(".") : id.split("."); //id 값이 없으면 tag에서 class를 분리, 아니면 id에서 class를 분리
 
-	let returns = []; //return할 배열
-	returns.push(classes.length > 1 ? classes[0] : tag); //0번째에 tagName을 대입
+	console.log(tag, classes);
 
-	let json = {}; //returns 1번째에 포함시킬 json
+	let results = [
+		classes.length > 1 ? classes[0] : tag //0번째에 tag를 대입
+	]; //return할 배열
+
+	let json = {
+		...attr
+	}; //results 1번째에 포함시킬 json
+
 	if(id !== ""){ //id가 있을 경우에만
-		json.id = id; //json에 id로 대입
+		json.id = id.split(".")[0]; //json에 id로 대입할때 class를 제거한다.
 	}
-	for(let i = 1; i < classes.length; i++){ //classes가 있으면 1번째부터 동작, 0번째는 무조건 tagName에 해당됨.
-		json.class = json.class ? json.class + " " + classes[i] : classes[i]; //json.class가 undefined 즉, 처음 동작되면 바로 json.class를 대입하고 그 이후부터는 json.class 뒤에 공백 + 새로운 classes를 붙여 대입한다.
+	for(let i = 1; i < classes.length; i++){ //classes가 있으면 1번째부터 동작, 0번째는 무조건 id아니면 tag에 해당됨.
+		json.class = json.class ? `${json.class} ${classes[i]}` : classes[i]; //json.class가 undefined 즉, 처음 동작되면 바로 json.class를 대입하고 그 이후부터는 json.class 뒤에 공백 + 새로운 classes를 붙여 대입한다.
 	}
-	returns.push(json); //조립된 json을 1번째로 대입
+	results.push(json); //update된 attr을 1번째로 대입
 
-	return returns;
+	return results;
 }
 
 /*
@@ -31,10 +37,8 @@ $.chain = function(object, element, attr = {}, direction = "append"){
 		$(object)[direction](element);
 		return element;
 	}else{
-		let [ tag, _attr ] = $.emmet(element); //emmet으로 처리된 tag와 attributes를 받는다.
-		$.extend(true, attr, _attr); //emmet으로 입력된 값이 우선권을 갖도록 처리하고 attr을 사용하도록 함.
-
-		let $element = $(`<${tag}/>`, {...attr});
+		let [ tag, _attr ] = $.emmet(element, attr); //emmet으로 처리된 tag와 attributes를 받는다.
+		let $element = $(`<${tag}/>`, {..._attr});
 		$(object)[direction]($element);
 		return $element;
 	}
