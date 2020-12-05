@@ -33,7 +33,7 @@
 			.$append("form")
 				.$append("div.w-96.mx-auto")
 					.$append("div.grid.grid-cols-2.p-1")
-						.$append("label.mr-1.text-right", {text: "ID:"})
+						.$append("label#theLabel.mr-1", {text: "ID:", id: "label-1", class: "text-right"})
 						.$after("input.border", {type: "text"}).parent()
 					.$after("div.grid.grid-cols-2.p-1")
 						.$append("label.mr-1.text-right", {text: "Password:"})
