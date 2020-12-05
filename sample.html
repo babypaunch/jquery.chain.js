@@ -31,12 +31,12 @@
 	<script type="text/javascript">
 		var tailwind = {
 			row: ".py-1"
-			, label: ".block.text-sm"
-			, input: ".block.bg-gray-200.focus:bg-gray-300.focus:outline-none.py-1.px-2"
+			, label: ".block.text-sm.w-full"
+			, input: ".block.bg-gray-200.focus:bg-gray-300.focus:outline-none.py-1.px-2.w-full"
 		};
 
 		$("#sample")
-			.$append("form.w-96.my-0.mx-auto")
+			.$append("form.w-64.my-0.mx-auto")
 				.$append(`div${tailwind.row}`)
 					.$append(`label${tailwind.label}`, {text: "ID:", for: "id"})
 					.$after(`input#id${tailwind.input}`, {type: "text"}).parent()
