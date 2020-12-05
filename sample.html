@@ -29,20 +29,20 @@
 	<script src="jquery.chain.js"></script>
 
 	<script type="text/javascript">
-		var cls = {
-			gridCols: ".grid.grid-cols-2.p-1"
-			, label: ".mr-1.text-right"
-			, input: ".border.focus:outline-none.focus:border-blue-400"
+		var tailwind = {
+			row: ".py-1"
+			, label: ".block.text-sm"
+			, input: ".block.bg-gray-200.focus:bg-gray-300.focus:outline-none.py-1.px-2"
 		};
 
 		$("#sample")
 			.$append("form.w-96.my-0.mx-auto")
-				.$append(`div${cls.gridCols}`)
-					.$append(`label${cls.label}`, {text: "ID:", for: "id"})
-					.$after(`input#id${cls.input}`, {type: "text"}).parent()
-				.$after(`div${cls.gridCols}`)
-					.$append(`label${cls.label}`, {text: "Password:", for: "pwd"})
-					.$after(`input#pwd${cls.input}`, {type: "password"}).parent()
+				.$append(`div${tailwind.row}`)
+					.$append(`label${tailwind.label}`, {text: "ID:", for: "id"})
+					.$after(`input#id${tailwind.input}`, {type: "text"}).parent()
+				.$after(`div${tailwind.row}`)
+					.$append(`label${tailwind.label}`, {text: "Password:", for: "pwd"})
+					.$after(`input#pwd${tailwind.input}`, {type: "password"}).parent()
 		;
 	</script>
 </body>
