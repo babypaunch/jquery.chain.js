@@ -36,14 +36,13 @@
 		};
 
 		$("#sample")
-			.$append("form")
-				.$append("div.w-96.mx-auto")
-					.$append(`div${cls.gridCols}`)
-						.$append(`label${cls.label}`, {text: "ID:", for: "id"})
-						.$after(`input#id${cls.input}`, {type: "text"}).parent()
-					.$after(`div${cls.gridCols}`)
-						.$append(`label${cls.label}`, {text: "Password:", for: "pwd"})
-						.$after(`input#pwd${cls.input}`, {type: "password"}).parent()
+			.$append("form.w-96.my-0.mx-auto")
+				.$append(`div${cls.gridCols}`)
+					.$append(`label${cls.label}`, {text: "ID:", for: "id"})
+					.$after(`input#id${cls.input}`, {type: "text"}).parent()
+				.$after(`div${cls.gridCols}`)
+					.$append(`label${cls.label}`, {text: "Password:", for: "pwd"})
+					.$after(`input#pwd${cls.input}`, {type: "password"}).parent()
 		;
 	</script>
 </body>
