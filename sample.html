@@ -28,6 +28,7 @@
 	<div id="sample1"></div>
 	<div id="sample2"></div>
 	<div id="sample3"></div>
+	<div id="sample4"></div>
 
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="jquery.chain.js"></script>
@@ -37,6 +38,7 @@
 			row: ".py-1"
 			, label: ".block.text-sm.w-full"
 			, input: ".block.bg-gray-200.focus:bg-gray-300.focus:outline-none.py-1.px-2.w-full"
+			, button: ".my-1.py-1.w-full.text-white.bg-blue-400.hover:bg-blue-500.focus:outline-none"
 		};
 		let $sample1 = $("#sample1");
 		$sample1
@@ -48,6 +50,8 @@
 				.$after(`div${tw1.row}`)
 					.$append(`label${tw1.label}`, {text: "Password:", for: "pwd"})
 					.$after(`input#pwd${tw1.input}`, {type: "password"}).parent()
+				.$after(`div${tw1.row}`)
+					.$append(`button${tw1.button}`, {type: "button", text: "Click"})
 		;
 
 		let tw2 = {
@@ -56,6 +60,7 @@
 			, col: ".w-full.p-2.flex.flex-col"
 			, label: ".text-sm.w-full.pr-2"
 			, input: ".w-full.py-1.px-2.bg-gray-200.focus:bg-gray-300.focus:outline-none"
+			, button: ".py-1.w-full.text-white.bg-blue-400.hover:bg-blue-500.focus:outline-none"
 		};
 		let $sample2 = $("#sample2");
 		$sample2
@@ -70,9 +75,7 @@
 							.$append(`label${tw2.label}`, {text: "Password:", for: "pwd"})
 							.$after(`input#pwd${tw2.input}`, {type: "password"}).parent().parent()
 						.$append(`div${tw2.col}.md:w-1/2.justify-end`)
-							.$append(`button.py-1.w-full.text-white.bg-blue-400.hover:bg-blue-500`, {type: "button", text: "Click"})
-					//.$after(`div${tw2.row}`)
-						//.$append(`button.mx-2.my-1.py-1.w-full.text-white.bg-blue-400.hover:bg-blue-500`, {type: "button", text: "Click"})
+							.$append(`button${tw2.button}`, {type: "button", text: "Click"})
 		;
 
 		let tw3 = {
@@ -81,6 +84,7 @@
 			, col: ".w-full.p-2.flex.flex-col"
 			, label: ".text-sm.w-full.pr-2"
 			, input: ".w-full.py-1.px-2.bg-gray-200.focus:bg-gray-300.focus:outline-none"
+			, button: ".py-1.w-full.text-white.bg-blue-400.hover:bg-blue-500.focus:outline-none"
 		};
 		let $sample3 = $("#sample3");
 		$sample3
@@ -94,10 +98,65 @@
 						.$append(`div${tw3.col}`)
 							.$append(`label${tw3.label}`, {text: "Password:", for: "pwd"})
 							.$after(`input#pwd${tw3.input}`, {type: "password"}).parent().parent()
-						.$append(`div${tw3.col}.md:w-1/2.justify-end`)
-							.$append(`button.py-1.w-full.text-white.bg-blue-400.hover:bg-blue-500`, {type: "button", text: "Click"})
-					//.$after(`div${tw3.row}`)
-						//.$append(`button.mx-2.my-1.py-1.w-full.text-white.bg-blue-400.hover:bg-blue-500`, {type: "button", text: "Click"})
+					.$after(`div${tw3.row}`)
+						.$append(`div.w-full.md:p-2`)
+						.$after(`div${tw3.col}`)
+							.$append(`label${tw3.label}`, {text: "Password Confirm:", for: "pwd2"})
+							.$after(`input#pwd2${tw3.input}`, {type: "password"}).parent().parent()
+					.$after(`div${tw3.row}`)
+						.$append(`div${tw3.col}`)
+							.$append(`label${tw3.label}`, {text: "우편번호:", for: "zip"})
+							.$after(`input#zip${tw3.input}`, {type: "text"}).parent().parent()
+						.$append(`div${tw3.col}.justify-end`)
+							.$append(`button${tw3.button}`, {type: "button", text: "우편번호 검색"})
+		;
+
+		let tw4 = {
+			wrapper: ".my-0.mx-auto.w-full.md:max-w-3xl"
+			, row: ".flex.flex-wrap.md:flex-nowrap"
+			, col: ".w-full.p-2.flex.flex-col"
+			, label: ".text-sm.w-full.pr-2"
+			, input: ".w-full.py-1.px-2.bg-gray-200.focus:bg-gray-300.focus:outline-none"
+			, button: ".py-1.w-full.text-white.bg-blue-400.hover:bg-blue-500.focus:outline-none"
+			, button2: ".py-1.w-full.text-white.bg-gray-400.hover:bg-gray-500.focus:outline-none"
+		};
+		let $sample4 = $("#sample4");
+		$sample4
+			.$append(`form`)
+				.$append(`div${tw4.wrapper}`)
+					.$append(`p.pb-1.m-2.border-b`, {text: "sample4"})
+					.$after(`div${tw4.row}`)
+						.$append(`div${tw4.col}`)
+							.$append(`label${tw4.label}`, {text: "ID:", for: "id"})
+							.$after(`input#id${tw4.input}`, {type: "text"}).parent().parent()
+						.$append(`div${tw4.col}.justify-end`)
+							.$append(`button${tw4.button}`, {type: "button", text: "ID 중복 검색"}).parent().parent()
+					.$after(`div${tw4.row}`)
+						.$append(`div${tw4.col}`)
+							.$append(`label${tw4.label}`, {text: "Password:", for: "pwd"})
+							.$after(`input#pwd${tw4.input}`, {type: "password"}).parent().parent()
+						.$append(`div${tw4.col}`)
+							.$append(`label${tw4.label}`, {text: "Password Confirm:", for: "pwd2"})
+							.$after(`input#pwd2${tw4.input}`, {type: "password"}).parent().parent()
+					.$after(`div${tw4.row}`)
+						.$append(`div${tw4.col}`)
+							.$append(`label${tw4.label}`, {text: "우편번호:", for: "zip"})
+							.$after(`input#zip${tw4.input}`, {type: "text"}).parent().parent()
+						.$append(`div${tw4.col}.justify-end`)
+							.$append(`button${tw4.button}`, {type: "button", text: "우편번호 검색"}).parent().parent()
+					.$after(`div${tw4.row}`)
+						.$append(`div${tw4.col}`)
+							.$append(`label${tw4.label}`, {text: "주소:", for: "addr1"})
+							.$after(`input#addr1${tw4.input}`, {type: "text"}).parent().parent()
+					.$after(`div${tw4.row}`)
+						.$append(`div${tw4.col}`)
+							.$append(`label${tw4.label}`, {text: "주소 상세:", for: "addr2"})
+							.$after(`input#addr2${tw4.input}`, {type: "text"}).parent().parent()
+					.$after(`div${tw4.row}`)
+						.$append(`div${tw4.col}`)
+							.$append(`button${tw4.button2}`, {type: "button", text: "취소"}).parent().parent()
+						.$append(`div${tw4.col}`)
+							.$append(`button${tw4.button}`, {type: "button", text: "회원 가입"}).parent().parent()
 		;
 	</script>
 </body>
