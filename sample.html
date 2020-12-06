@@ -40,14 +40,14 @@
 		let $sample1 = $("#sample1");
 		$sample1
 			.$append("form.w-64.my-0.mx-auto")
-				.$append(`div${tw1.row}`)
+				.$append(`p.pb-1.my-2.border-b`, {text: "sample1"})
+				.$after(`div${tw1.row}`)
 					.$append(`label${tw1.label}`, {text: "ID:", for: "id"})
 					.$after(`input#id${tw1.input}`, {type: "text"}).parent()
 				.$after(`div${tw1.row}`)
 					.$append(`label${tw1.label}`, {text: "Password:", for: "pwd"})
 					.$after(`input#pwd${tw1.input}`, {type: "password"}).parent()
 		;
-		$sample1.hide();
 
 		let tw2 = {
 			wrapper: ".my-0.mx-auto.w-full.md:max-w-3xl"
@@ -60,7 +60,8 @@
 		$sample2
 			.$append(`form`)
 				.$append(`div${tw2.wrapper}`)
-					.$append(`div${tw2.row}`)
+					.$append(`p.pb-1.m-2.border-b`, {text: "sample2"})
+					.$after(`div${tw2.row}`)
 						.$append(`div${tw2.col}`)
 							.$append(`label${tw2.label}`, {text: "ID:", for: "id"})
 							.$after(`input#id${tw2.input}`, {type: "text"}).parent().parent()
