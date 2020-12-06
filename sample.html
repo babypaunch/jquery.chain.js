@@ -25,10 +25,10 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.12.2/less.min.js"></script>
 </head>
 <body>
-	<div id="sample1"></div>
-	<div id="sample2"></div>
-	<div id="sample3"></div>
-	<div id="sample4"></div>
+	<div id="sample1" class="overflow-hidden"></div>
+	<div id="sample2" class="overflow-hidden"></div>
+	<div id="sample3" class="overflow-hidden"></div>
+	<div id="sample4" class="overflow-hidden"></div>
 
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="jquery.chain.js"></script>
@@ -158,6 +158,18 @@
 						.$append(`div${tw4.col}`)
 							.$append(`button${tw4.button}`, {type: "button", text: "회원 가입"}).parent().parent()
 		;
+
+		$(function(){
+			$("[id^=sample]").each(function(idx){
+				let $this = $(this);
+				$this.css({height: idx === 0 ? "" : "50px"});
+
+				$this.click(function(){
+					$("[id^=sample]").css({height: "50px"});
+					$this.css({height: ""});
+				});
+			});
+		});
 	</script>
 </body>
 </html>
