@@ -52,31 +52,25 @@
 		$sample1.hide();
 
 		tw = {
-			cols: {
-				D: ".grid.grid-cols-1"
-				, md: ".md:grid-cols-2"
-			}
-			, col: {
-				D: ".p-2.block"
-				, md: ".md:flex"
-			}
-			, label: {
-				D: ".block.text-sm.w-full.pr-2"
-				, md: ".md:flex.md:justify-end.md:items-center.md:w-1/2.md:text-lg.md:text-right"
-			}
-			, input: ".block.bg-gray-200.focus:bg-gray-300.focus:outline-none.py-1.px-2.w-full"
+			wrapper: ".my-0.mx-auto.w-full.sm:max-w-3xl"
+			, row: ".flex.flex-wrap.sm:flex-nowrap"
+			, col: ".w-full.p-2"
+			, label: ".text-sm.w-full.pr-2"
+			, input: ".w-full.py-1.px-2.bg-gray-200.focus:bg-gray-300.focus:outline-none"
 		};
 		let $sample2 = $("#sample2");
 		$sample2
-			.$append(`form.my-0.mx-auto.w-full.sm:max-w-5xl`)
-				.$append(`div${tw.cols.D}${tw.cols.md}`)
-					.$append(`div${tw.col.D}${tw.col.md}`)
-						.$append(`label${tw.label.D}${tw.label.md}`, {text: "ID:", for: "id"})
-						.$after(`input#id${tw.input}`, {type: "text"}).parent().parent()
-					.$append(`div${tw.col.D}${tw.col.md}`)
-						.$append(`label${tw.label.D}${tw.label.md}`, {text: "Password:", for: "pwd"})
-						.$after(`input#pwd${tw.input}`, {type: "password"}).parent().parent()
-				.$after(`div${tw.cols.D}`)
+			.$append(`form`)
+				.$append(`div${tw.wrapper}`)
+					.$append(`div${tw.row}`)
+						.$append(`div${tw.col}`)
+							.$append(`label${tw.label}`, {text: "ID:", for: "id"})
+							.$after(`input#id${tw.input}`, {type: "text"}).parent().parent()
+						.$append(`div${tw.col}`)
+							.$append(`label${tw.label}`, {text: "Password:", for: "pwd"})
+							.$after(`input#pwd${tw.input}`, {type: "password"}).parent().parent()
+					.$after(`div${tw.row}`)
+						.$append(`button.mx-2.my-1.py-1.w-full.text-white.bg-blue-400.hover:bg-blue-500`, {text: "Click"})
 		;
 	</script>
 </body>
