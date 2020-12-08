@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
 	<style type="text/less">
 		@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-		* { font-family: 'Nanum Gothic'; }
+		*, a, button { font-family: 'Nanum Gothic'; }
 	</style>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.12.2/less.min.js"></script>
 </head>
@@ -100,7 +100,7 @@
 		;
 
 		let tw4 = {
-			wrapper: ".my-0.mx-auto.w-full.md:max-w-xl"
+			wrapper: ".my-0.mx-auto.w-full.md:max-w-lg"
 			, row: ".flex.flex-wrap.md:flex-nowrap"
 			, col: ".w-full.p-2.flex.flex-col"
 			, label: ".text-sm.w-full.pr-2"
@@ -145,6 +145,11 @@
 							.$append(`label${tw4.label}`, {text: "주소 상세:", for: "addr2"})
 							.$after(`input#addr2${tw4.input}`, {type: "text"}).parent().parent()
 					.$after(`div${tw4.row}`)
+						.$append(`div.w-full.p-2.text-sm.flex.items-center`)
+							.$append(`input#agree`, {type: "checkbox"})
+							.$after(`a.mx-2.border-b.border-gray-900`, {href: "#", text: "회원 가입"})
+							.$after(`label`, {text: "약관에 동의합니다.", for: "agree"}).parent().parent()
+					.$after(`div${tw4.row}`)
 						.$append(`div${tw4.col}`)
 							.$append(`button${tw4.button.D}${tw4.button.cancel}`, {type: "button", text: "취소"}).parent().parent()
 						.$append(`div${tw4.col}`)
@@ -152,12 +157,13 @@
 		;
 
 		$(function(){
-			$("[id^=sample]").each(function(idx){
+			$samples = $("[id^=sample]");
+			$samples.each(function(idx){
 				let $this = $(this);
-				$this.css({height: idx === 0 ? "" : "50px"});
+				$this.css({height: idx === $samples.length - 1 ? "" : "50px"});
 
 				$this.click(function(){
-					$("[id^=sample]").css({height: "50px"});
+					$samples.css({height: "50px"});
 					$this.css({height: ""});
 				});
 			});
