@@ -99,6 +99,13 @@
 							.$append(`button${tw3.button}`, {type: "button", text: "우편번호 검색"})
 		;
 
+		let nations4 = [
+			{value: "", text: "선택"}
+			, {value: "kor", text: "한국"}
+			, {value: "usa", text: "미국"}
+			, {value: "chn", text: "중국"}
+		];
+
 		let tw4 = {
 			wrapper: ".my-0.mx-auto.w-full.md:max-w-lg"
 			, row: ".flex.flex-wrap.md:flex-nowrap"
@@ -111,6 +118,7 @@
 				, cancel: ".text-white.py-2.focus:outline-none.bg-gray-400.focus:bg-gray-500.hover:bg-gray-500"
 				, primary: ".text-white.py-2.focus:outline-none.bg-blue-400.focus:bg-blue-500.hover:bg-blue-500"
 			}
+			, select: ".py-2.border.border-gray-900.rounded"
 		};
 		let $sample4 = $("#sample4");
 		$sample4
@@ -130,6 +138,11 @@
 						.$append(`div${tw4.col}`)
 							.$append(`label${tw4.label}`, {text: "Password Confirm:", for: "pwd2"})
 							.$after(`input#pwd2${tw4.input}`, {type: "password"}).parent().parent()
+					.$after(`div${tw4.row}`)
+						.$append(`div${tw4.col}`)
+							.$append(`label${tw4.label}`, {text: "국가:", for: "nations4"})
+							.$after(`select#nations4${tw4.select}`)
+								.$appends(`option`, nations4).parent().parent()
 					.$after(`div${tw4.row}`)
 						.$append(`div${tw4.col}`)
 							.$append(`label${tw4.label}`, {text: "우편번호:", for: "zip"})
