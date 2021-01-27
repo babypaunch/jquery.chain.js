@@ -1,0 +1,53 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" crossorigin="anonymous">
+	<style type="text/less">
+		table {
+			table-layout: fixed; width: 100%; border-collapse: collapse;
+
+			tr {
+				width: 100%; height: 20px; background: #eee;
+
+				th, td {
+					border: 1px solid silver;
+				}
+			}
+		}
+
+		.bodybody {
+			color: red;
+		}
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.12.2/less.min.js"></script>
+</head>
+<body>
+	<div id="formWrapper1"></div>
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="jquery.chain.js"></script>
+	<script src="jquery.emmet.js"></script>
+	<script type="text/javascript">
+		var $fw1 = $("#formWrapper1");
+
+		/*
+		$fw1.$append("form", {id: "formTestId"})
+			.$append("table.cls1.cls4", {class: "cls3"})
+				.$append("thead")
+				.$after($("<tbody/>", {class: "bodybody"}))
+					.$append("tr")
+						.$append("th", {text: "제목1"}).$after("td", {text: "내용1"}).parent()
+					.$after("tr")
+						.$append("th", {text: "제목2"}).$after("td", {text: "내용2"}).parent()
+		;
+		*/
+
+		var $table = $("<table/>");
+		$table.append("<tbody/>");
+
+		$fw1.append($table)
+		;
+	</script>
+</body>
+</html>
