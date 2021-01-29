@@ -30,18 +30,20 @@
 
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="jquery.chain.js"></script>
-	<script src="jquery.emmet.js"></script>
 	<script type="text/javascript">
 		var $fw1 = $("#formWrapper1");
-		$fw1.$append("form#form1")
+		$fw1
+		.$append("form#form1")
 			.$append("table.cls2", {class: "cls1"})
 				.$append("colgroup")
 					.$append("col", {style: "width: 100px;"})
 					.$after("col").parent()
 				.$after("tr")
-					.$append("th.p-5", {text: "제목1"}).$after("td.p-5", {text: "내용1"}).parent()
+					.$append("th.p-5", {text: "제목1-1"})
+					.$after("td.p-5", {text: "내용1-1"}).parent()
 				.$after("tr")
-					.$append("th.p-5", {text: "제목2"}).$after("td.p-5", {text: "내용2"}).parent()
+					.$append("th.p-5", {text: "제목1-2"})
+					.$after("td.p-5", {text: "내용1-2"}).parent()
 		;
 
 		var $fw2 = $("#formWrapper2");
@@ -53,12 +55,12 @@
 						<col>
 					</colgroup>
 					<tr>
-						<th class="p-5">제목1</th>
-						<td class="p-5">내용1</td>
+						<th class="p-5">제목2-1</th>
+						<td class="p-5">내용2-1</td>
 					</tr>
 					<tr>
-						<th class="p-5">제목2</th>
-						<td class="p-5">내용2</td>
+						<th class="p-5">제목2-2</th>
+						<td class="p-5">내용2-2</td>
 					</tr>
 				</table>
 			</form>
