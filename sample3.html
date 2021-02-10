@@ -70,7 +70,19 @@
 		$form.append($("<table/>"))
 
 		var $fw3 = $("#formWrapper3");
-		$fw3.append($form)
+		$fw3.$append("form#form3")
+			.$append("table.cls2", {class: "cls1"})
+				.$append("colgroup")
+					.$append("col", {style: "width: 100px;"})
+					//.$after("col").$parents(2)
+					.$after("col").parent()
+				//.$append("tr")
+				.$after("tr")
+					.$append("th.p-5", {text: "제목3-1"})
+					.$after("td.p-5", {text: "내용3-1"}).parent()
+				.$after("tr")
+					.$append("th.p-5", {text: "제목3-2"})
+					.$after("td.p-5", {text: "내용3-2"}).parent()
 		;
 	</script>
 </body>
