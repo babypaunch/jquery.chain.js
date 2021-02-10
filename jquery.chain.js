@@ -83,3 +83,11 @@ $.fn.$afters = function(element, attrs = []){
 $.fn.$befores = function(element, attrs = []){
 	return $.chains(this, element, attrs, "before");
 }
+
+$.fn.$parents = function(count = 1){
+	var $this = $(this);
+	for(let i = 0; i < count; i++){
+		$this = $this.parent();
+	}
+	return $this;
+}
