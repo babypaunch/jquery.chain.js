@@ -10,6 +10,7 @@
 		@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 		*, a, button { font-family: 'Nanum Gothic'; }
 	</style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/a11y-dark.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.12.2/less.min.js"></script>
 </head>
 <body>
@@ -19,9 +20,12 @@
 	<div id="sample4" class="overflow-hidden"></div>
 
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
 	<script src="jquery.chain.js"></script>
 
 	<script type="text/javascript">
+		hljs.initHighlightingOnLoad();
+
 		let tw1 = {
 			row: ".py-1"
 			, label: ".block.text-sm.w-full"
@@ -41,6 +45,21 @@
 				.$after(`div${tw1.row}`)
 					.$append(`button${tw1.button}`, {type: "button", text: "Click"})
 		;
+
+		var code = `<pre><code>$sample1
+	.$append("form.w-64.my-0.mx-auto")
+		.$append(\`p.pb-1.my-2.border-b\`, {text: "sample1"})
+		.$after(\`div${tw1.row}\`)
+			.$append(\`label${tw1.label}\`, {text: "ID:", for: "id"})
+			.$after(\`input#id${tw1.input}\`, {type: "text"}).parent()
+		.$after(\`div${tw1.row}\`)
+			.$append(\`label${tw1.label}\`, {text: "Password:", for: "pwd"})
+			.$after(\`input#pwd${tw1.input}\`, {type: "password"}).parent()
+		.$after(\`div${tw1.row}\`)
+			.$append(\`button${tw1.button}\`, {type: "button", text: "Click"})
+;
+</code></pre>`;
+		$sample1.append(code);
 
 		let tw2 = {
 			wrapper: ".my-0.mx-auto.w-full.md:max-w-3xl"
