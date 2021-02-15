@@ -26,14 +26,13 @@
 <body>
 	<div id="formWrapper1"></div>
 	<div id="formWrapper2"></div>
-	<div id="formWrapper3"></div>
 
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="jquery.chain.js"></script>
-	<script type="text/javascript">
+	<script>
 		var $fw1 = $("#formWrapper1");
-		$fw1
-		.$append("form#form1")
+		var $html = $("<form>", {id: "form1"});
+		$html
 			.$append("table.cls2", {class: "cls1"})
 				.$append("colgroup")
 					.$append("col", {style: "width: 100px;"})
@@ -45,9 +44,11 @@
 					.$append("th.p-5", {text: "제목1-2"})
 					.$after("td.p-5", {text: "내용1-2"}).parent()
 		;
+		$fw1.html($html);
 
+		//특징 template literal은 html 구조를 자동으로 작성해주는 부분들이 존재함.
 		var $fw2 = $("#formWrapper2");
-		$fw2.append(`
+		$fw2.html(`
 			<form id="form2">
 				<table class="cls2 cls1">
 					<colgroup>
@@ -64,26 +65,7 @@
 					</tr>
 				</table>
 			</form>
-		`);
-
-		var $form = $("<form/>");
-		$form.append($("<table/>"))
-
-		var $fw3 = $("#formWrapper3");
-		$fw3.$append("form#form3")
-			.$append("table.cls2", {class: "cls1"})
-				.$append("colgroup")
-					.$append("col", {style: "width: 100px;"})
-					//.$after("col").$parents(2)
-					.$after("col").parent()
-				//.$append("tr")
-				.$after("tr")
-					.$append("th.p-5", {text: "제목3-1"})
-					.$after("td.p-5", {text: "내용3-1"}).parent()
-				.$after("tr")
-					.$append("th.p-5", {text: "제목3-2"})
-					.$after("td.p-5", {text: "내용3-2"}).parent()
-		;
+		`.trim());
 	</script>
 </body>
 </html>
