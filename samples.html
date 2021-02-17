@@ -14,14 +14,15 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.12.2/less.min.js"></script>
 </head>
 <body>
-	<div class="grid text-center items-center">
-		<div>G</div>
-		<div class="grid grid-cols-3 items-center">
-			<div>L</div>
-			<div>C</div>
-			<div>R</div>
+	<div>
+		<header class="flex">
+		</header>
+		<div class="flex items-center">
+			<aside class="w-64">L</aside>
+			<section>C</section>
 		</div>
-		<div>F</div>
+		<footer>
+		</footer>
 	</div>
 
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -32,6 +33,28 @@
 		hljs.initHighlightingOnLoad();
 
 		$(function(){
+			let chainUi = {
+				nav: function(datas){
+					var $nav = $("<nav/>", {"class": "w-full flex justify-around items-center p-2"});
+
+					for(let i = 0; i < datas.length; i++){
+						$nav.append(`<button type="button" class="text-white bg-gray-400 py-1 px-3 rounded focus:outline-none border-2 border-gray-400 hover:bg-white hover:text-gray-400">${datas[i].text}</button>`);
+					}
+
+					return $nav;
+				}
+			};
+
+			let	datas = [
+				{text: "Logo"}
+				, {text: "Home"}
+				, {text: "Product"}
+				, {text: "Contact"}
+			];
+
+			let $nav = chainUi.nav(datas);
+
+			$("header").html($nav);
 		});
 	</script>
 </body>
